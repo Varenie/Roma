@@ -131,14 +131,10 @@ class TablePrice(context: Context) {
     }
 
     fun checkId(id: Int): Boolean{
-        if (id == 0){
-            return false
-        } else {
             cursor = db.rawQuery(
                 "SELECT * FROM ${DBHelper.TABLE_NAME}", null)
             cursor.moveToFirst()
 
-            return cursor.count != 0
-        }
+        return !(id == 0 || id > cursor.count)
     }
 }
