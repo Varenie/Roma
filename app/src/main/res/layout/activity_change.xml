@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeActivity">
+
+    <TextView
+        android:id="@+id/text_near_id"
+        android:layout_width="136dp"
+        android:layout_height="40dp"
+        android:text="Введите ID редактирования"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editText_id"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <EditText
+        android:id="@+id/editText_id"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:hint="id"
+        android:inputType="number"
+        android:digits="0123456789"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Выбрать"
+        android:onClick="choose_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toEndOf="@+id/editText_id"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <TextView
+        android:id="@+id/text_near_name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Текущее название:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_id"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <TextView
+        android:id="@+id/text_change_on_name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Изменить на: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_name"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <EditText
+        android:id="@+id/name_editText"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:hint="Название"
+        android:maxLength="32"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_name"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/change_name_btn"
+        android:layout_width="345dp"
+        android:layout_height="38dp"
+        android:onClick="changeName"
+        android:text="изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.336" />
+
+    <TextView
+        android:id="@+id/text_near_price"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Текущее цена:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_description_btn"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <TextView
+        android:id="@+id/text_change_on_price"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Изменить на: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_price"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <EditText
+        android:id="@+id/price_editText"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:hint="Цена"
+        android:inputType="numberDecimal"
+        android:digits="0123456789"
+        android:maxLength="6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toEndOf="@+id/text_change_on_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_price"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/change_price_btn"
+        android:layout_width="345dp"
+        android:layout_height="38dp"
+        android:onClick="changePrice"
+        android:text="изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_editText"
+        app:layout_constraintVertical_bias="0.058" />
+
+    <TextView
+        android:id="@+id/text_near_description"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Текущее описание:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_name_btn"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <TextView
+        android:id="@+id/text_change_on_description"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Изменить на: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_description"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <EditText
+        android:id="@+id/description_editText"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:hint="Описание"
+        android:maxLength="44"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toEndOf="@+id/text_change_on_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_near_description"
+        app:layout_constraintVertical_bias="0.005" />
+
+    <Button
+        android:id="@+id/change_description_btn"
+        android:layout_width="345dp"
+        android:layout_height="38dp"
+        android:onClick="changeDescription"
+        android:text="изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_editText"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <Button
+        android:id="@+id/delete_btm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="deletePosition"
+        android:text="удалить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
