@@ -17,6 +17,7 @@ class ChangeActivity: AppCompatActivity() {
     lateinit var nameBtn: Button
     lateinit var descriptionBtn: Button
     lateinit var priceBtn: Button
+    lateinit var deleteBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +29,12 @@ class ChangeActivity: AppCompatActivity() {
         nameBtn = findViewById(R.id.change_name_btn)
         descriptionBtn = findViewById(R.id.change_description_btn)
         priceBtn = findViewById(R.id.change_price_btn)
+        deleteBtn = findViewById(R.id.delete_btm)
 
         nameBtn.isEnabled = false
         descriptionBtn.isEnabled = false
         priceBtn.isEnabled = false
+        deleteBtn.isEnabled = false
 
     }
 
@@ -57,6 +60,7 @@ class ChangeActivity: AppCompatActivity() {
                 nameBtn.isEnabled = true
                 descriptionBtn.isEnabled = true
                 priceBtn.isEnabled = true
+                deleteBtn.isEnabled = true
             } else {
                 val toast = Toast.makeText(this, "Нет такого элемента", Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.TOP, 0, 0)
@@ -91,6 +95,8 @@ class ChangeActivity: AppCompatActivity() {
                     toast.show()
                 } else {
                     tablePrice.changeName(id, name)
+                    nameText.setText("")
+
                     val data = tablePrice.returnItemData(id)
                     nameHelpText.text = "Текущее название: ${data[0]}"
                 }
@@ -122,6 +128,8 @@ class ChangeActivity: AppCompatActivity() {
                     toast.show()
                 } else {
                     tablePrice.changeDescription(id, description)
+                    descriptionText.setText("")
+
                     val data = tablePrice.returnItemData(id)
                     descriptionHelpText.text = "Текущее описание: ${data[1]}"
                 }
@@ -147,6 +155,8 @@ class ChangeActivity: AppCompatActivity() {
             } else {
                 val price = priceText.text.toString().toInt()
                 tablePrice.changePrice(id, price)
+                priceText.setText("")
+
                 val data = tablePrice.returnItemData(id)
                 priceHelpText.text = "Текущая цена: ${data[2]}"
             }
@@ -160,6 +170,11 @@ class ChangeActivity: AppCompatActivity() {
     fun deletePosition(view: View) {
         val id = idText.text.toString().toInt()
 
+        val nameText: EditText = findViewById(R.id.name_editText)
+        val descriptionText: EditText = findViewById(R.id.description_editText)
+        val priceText: EditText = findViewById(R.id.price_editText)
+        val idtext: EditText = findViewById(R.id.editText_id)
+
         if(tablePrice.checkId(id)) {
             tablePrice.deletePosition(id)
             tablePrice.updateTableData()
@@ -167,12 +182,17 @@ class ChangeActivity: AppCompatActivity() {
             val toast = Toast.makeText(this, "Элемент удален", Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.TOP, 0, 0)
             toast.show()
+
+            this.recreate()
+            nameText.setText("")
+            descriptionText.setText("")
+            priceText.setText("")
+            idtext.setText("")
+            
         } else {
             val toast = Toast.makeText(this, "Неправильные данные", Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.TOP, 0, 0)
             toast.show()
         }
     }
-
-
 }
