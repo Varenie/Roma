@@ -188,7 +188,7 @@ class ChangeActivity: AppCompatActivity() {
             descriptionText.setText("")
             priceText.setText("")
             idtext.setText("")
-            
+
         } else {
             val toast = Toast.makeText(this, "Неправильные данные", Toast.LENGTH_SHORT)
             toast.setGravity(Gravity.TOP, 0, 0)
